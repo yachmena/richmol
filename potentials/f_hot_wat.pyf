@@ -1,0 +1,47 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module f_hot_wat ! in 
+    interface  ! in :f_hot_wat
+        subroutine potv(npoints,v,r1,r2,theta) ! in :f_hot_wat:HOT_WAT.f90
+            integer, optional,intent(in),check(len(r1)>=npoints),depend(r1) :: npoints=len(r1)
+            double precision dimension(npoints),intent(out),depend(npoints) :: v
+            double precision dimension(npoints),intent(in) :: r1
+            double precision dimension(npoints),intent(in),depend(npoints) :: r2
+            double precision dimension(npoints),intent(in),depend(npoints) :: theta
+        end subroutine potv
+        subroutine pesd2x(vr,x,y,z) ! in :f_hot_wat:HOT_WAT.f90
+            double precision :: vr
+            double precision :: x
+            double precision :: y
+            double precision :: z
+        end subroutine pesd2x
+        subroutine pesleq6(v1,x,y,z) ! in :f_hot_wat:HOT_WAT.f90
+            double precision :: v1
+            double precision :: x
+            double precision :: y
+            double precision :: z
+        end subroutine pesleq6
+        subroutine poten(v,r1,r2,th) ! in :f_hot_wat:HOT_WAT.f90
+            double precision intent(out) :: v
+            double precision intent(in) :: r1
+            double precision intent(in) :: r2
+            double precision intent(in) :: th
+        end subroutine poten
+        subroutine poka_pes_low(v,r1,r2,th) ! in :f_hot_wat:HOT_WAT.f90
+            double precision intent(out) :: v
+            double precision intent(in) :: r1
+            double precision intent(in) :: r2
+            double precision intent(in) :: th
+        end subroutine poka_pes_low
+        subroutine poka_pes_up(v,r1,r2,th) ! in :f_hot_wat:HOT_WAT.f90
+            double precision intent(out) :: v
+            double precision intent(in) :: r1
+            double precision intent(in) :: r2
+            double precision intent(in) :: th
+        end subroutine poka_pes_up
+    end interface 
+end python module f_hot_wat
+
+! This file was auto-generated with f2py (version:1.21.2).
+! See http://cens.ioc.ee/projects/f2py2e/
